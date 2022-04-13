@@ -15,30 +15,22 @@ public class LSE {
         }
     }
 
-    public void alterarInfo(String matr) {
+    public void alterarInfo(String matr, String nome) {
         Scanner in = new Scanner(System.in);
         Node aux;
         Aluno al;
-        String nome;
-        double media;
-        int faltas;
         aux = this.buscar(matr);
         if (aux == null) {
             System.out.println("Matrícula inexistente!!!");
         } else {
             al = aux.getInfo();
             System.out.println("Aluno encontrado");
-            System.out.print("Informe o nome do aluno: ");
+            System.out.print("Informe o novo nome do aluno: ");
             nome = in.nextLine();
             al.setNome(nome);
-            System.out.print("Informe a média do aluno: ");
-            media = in.nextDouble();
-            in.nextLine();
-            al.setMedia(media);
-            System.out.print("Informe as faltas do aluno: ");
-            faltas = in.nextInt();
-            in.nextLine();
-            al.setFaltas(faltas);
+            System.out.print("Informe a nova matricula do aluno: ");
+            matr = in.nextLine();
+            al.setMatr(matr);
             System.out.println("Alterações efetuadas!");
         }
     }
@@ -81,6 +73,7 @@ public class LSE {
             }
         }
     }
+
 
     public void inserirInicio(Aluno al) {
         Node novo = new Node(al);
